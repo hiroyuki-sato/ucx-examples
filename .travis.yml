@@ -15,6 +15,8 @@ before_install:
     - sudo apt-get install -y clang-format-8 autotools-dev libtool libnuma-dev
     - git clone https://github.com/openucx/ucx.git
     - cd ucx
+    - uname -a
+    - patch -p1 < ../javatest.patch
     - git checkout $UCX_VERSION
     - ./autogen.sh
     - ./configure --prefix=$HOME/usr --disable-gtest --disable-examples --with-java=no
